@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: ipweek2-backend-deployment
+spec:
+   selector:
+      matchLabels:
+        app:  ipweek2-backend
+   replicas: 1    
+   template: 
+       metadata:
+         labels:
+            app: ipweek2-backend
+       spec: 
+          containers:
+           -  name: ipweek2-backend
+              image: gloriamutie/yolo-k8-backend:1.0.0
+              resources:
+                 limits:
+                   cpu: "1"
+                   memory: "1Gi"
+              requests:
+                  cpu: "0.5"
+                  memory: "512Mi"
+              ports:
+                - containerPort: 5000   
+              env:
+                - name: MONGODB_URI
+                  valueFrom: 
+                     secretKeyRef:
+                         name: ipweek2-backend-secrets  
+                         key:  MONGODB_URI
+                      
+
+
+

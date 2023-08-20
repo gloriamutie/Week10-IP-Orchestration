@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: ipweek2-client-deployment
+spec:
+   selector:
+      matchLabels:
+        app:  ipweek2-client
+   replicas: 1
+   template: 
+       metadata:
+         labels:
+            app: ipweek2-client
+       spec: 
+          containers:
+           -  name: ipweek2-client
+              image: gloriamutie/yolo-k8-client:1.0.3
+              tty: true
+              ports:
+                - containerPort: 3000
+              
+          
+         
+                      
+
+
+

@@ -1,4 +1,4 @@
-## Deploy react WebApp (Yolo) to K8S
+## Deploy react WebApp (Yolo) to Kubernates
 
 ## Implementation plan
 

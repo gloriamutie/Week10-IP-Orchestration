@@ -28,8 +28,8 @@ services:
       container_name: database_container  
       image: mongo
       environment:
-         MONGO_INITDB_ROOT_USERNAME: gloria
-         MONGO_INITDB_ROOT_PASSWORD: gloria
+         MONGO_INITDB_ROOT_USERNAME: Z2xvcmlh
+         MONGO_INITDB_ROOT_PASSWORD: Z2xvcmlh
       volumes:
          - test-vol:/data/db   
 volumes:

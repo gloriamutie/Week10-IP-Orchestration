@@ -5,14 +5,19 @@
  ## prerequisites 
   1. Docker Desktop installation is completed.
   2. Minikube is installed and running within Docker Desktop.
+
 ## Step 1
  Build two images: one for the backend and another for the client, then push them to Docker Hub.
+
 ## Step 2 
  Develop deployment files for both the backend and client components.
+
 ## Step 3
 Generate two services, corresponding to the backend and client services.
+
 ## Step 4
 For securely managing your MongoDB URL, create a secret file. If you're using a remote connection, this step might not be necessary. In the case of a deployed MongoDB within Kubernetes (as in my scenario), create deployment and service files, and include secrets for your MongoDB username and password.
+
 ## Step 5
  Execute the deployment with the following command:
 
@@ -32,9 +37,11 @@ Accessing backend and the client
 I've successfully created two services, namely `ipweek2-client-service` and `ipweek2-backend-service`, which play a vital role in enabling external access to both my client and backend applications. By specifying selectors, I've precisely targeted Pods labeled as `app: ipweek2-client` and `app: ipweek2-backend`. The type of service I've chosen is `LoadBalancer`, letting the cloud provider manage the intricacies of load balancers. These load balancers efficiently handle incoming external traffic and expertly direct it to the specific Pods selected earlier. I've configured the services to seamlessly guide incoming traffic on ports 3000 and 5000 to the corresponding ports on the Pods. This thoughtful setup guarantees that external users can conveniently engage with both my client and backend applications via the externally assigned IP address or hostname. Furthermore, I've established an intriguing connection between my client and backend applications. By leveraging the Pod IPs from the backend, I've empowered the client to effectively communicate with the backend using these exposed IP addresses. This strategic arrangement not only enables external users to interact seamlessly with both applications but also fosters a smooth and collaborative interaction between my client and backend, thanks to the exposed IPs.
 
 For backend use below command
+
 `
 kubectl apply -f ipweek2-backend-service.yaml
 `
+
 For client to be able to access the client service in your browser
 
 `
